@@ -24,8 +24,8 @@ class ProductController extends Controller
         $products = new Product();
         $products -> name = 'title 2';
         $products -> price = 2;
-        $products -> img_link = 'content 2';
-        $products -> amount = '2';
+        $products -> img_link = 'angel.png';
+        $products -> amount = 2;
         $products -> save();
         $products = Product::all();
         $order = Order::all();

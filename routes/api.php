@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/bai-viet', [ArticalController::class, 'show']);
 Route::post('/', [OrderController::class, 'add']);
-Route::get('/san-pham', [ProductController::class, 'index']);
+Route::post('/san-pham', [ProductController::class, 'add']);
 
