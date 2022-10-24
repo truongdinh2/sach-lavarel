@@ -20,5 +20,16 @@ class ProductController extends Controller
         $order = Order::all();
         return view('index', ['products' => $products, 'orders' => $order]);
     }
+    public function add() {
+        $products = new Product();
+        $products -> name = 'title 2';
+        $products -> price = 2;
+        $products -> img_link = 'content 2';
+        $products -> amount = '2';
+        $products -> save();
+        $products = Product::all();
+        $order = Order::all();
+        return view('index', ['products' => $products, 'orders' => $order]);
+    }
     
 }
