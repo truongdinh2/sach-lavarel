@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,17 +23,21 @@ use Illuminate\Http\Request;
 //     return view('index');
 // })-> name('home');
 Route::post('/welcome', function (Request $request) {
-    $data = $request -> id;
+    $data = $request->id;
     // dd($request -> id);
-    return response() -> json($data);
+    return response()->json($data);
 });
 Route::get('/bai-viet-1', function () {
     return 'Hello World';
+});
+Route::get('/admin/product', function () {
+    $products = Product::all();
+    return view('products.table', ['products' => $products]);
 });
 Route::resource('/bai-viet', ArticalController::class);
 Route::get('/', [ProductController::class, 'index']);
 Route::post('/', [OrderController::class, 'add']);
 Route::get('/user/{user}', function ($user) {
     $userAll = User::all();
-    return $userAll[0] -> name;
+    return $userAll[0]->name;
 })->middleware('checkpermission');

@@ -31,5 +31,20 @@ class ProductController extends Controller
         $order = Order::all();
         return view('index', ['products' => $products, 'orders' => $order]);
     }
-    
+    public function edit() {
+        $products = new Product();
+        $products -> name = 'title 2';
+        $products -> price = 2;
+        $products -> img_link = 'angel.png';
+        $products -> amount = 2;
+        $products -> save();
+        $products = Product::all();
+        $order = Order::all();
+        return view('index', ['products' => $products, 'orders' => $order]);
+    }
+    public function delete(Request $request ) {
+        Product::destroy($request->id);
+        $products = Product::all();
+        return response()->json($products);
+    }
 }

@@ -20,7 +20,9 @@ use App\Http\Controllers\Api\ProductController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/bai-viet', [ArticalController::class, 'show']);
-Route::post('/', [OrderController::class, 'add']);
+// Route::get('/bai-viet', [ArticalController::class, 'show']);
+// Route::post('/', [OrderController::class, 'add']);
 Route::post('/san-pham', [ProductController::class, 'add']);
-
+Route::post('/san-pham/:id/edit', [ProductController::class, 'edit']);
+Route::delete('/san-pham', [ProductController::class, 'delete']);
+Route::post('/order', [OrderController::class, 'add']);
